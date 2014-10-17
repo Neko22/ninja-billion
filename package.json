@@ -1,0 +1,12 @@
+{
+  "name": "ninja-billion",
+  "version": "0.0.1",
+  "description": "Ninja Billion Router Monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/neko22/ninja-billion",
+  "author": "neko22",
+  "license": "MIT"
+}
