@@ -1,13 +1,11 @@
-var Device = require('./lib/device');
+var TransmitDevice = require('./lib/transmit');
+var ReceiveDevice = require('./lib/receive');
 var util = require('util');
 var stream = require('stream');
 var configHandlers = require('./lib/config-handlers');
 
 // Give our driver a stream interface
 util.inherits(billionDriver,stream);
-
-// Poll interval default value in seconds (converted to milliseoncds in device.js)
-var default_poll_interval = 5;
 
 // Enable/disable
 var enabled = true;
@@ -46,14 +44,18 @@ function billionDriver(opts,app) {
 			// Check if we have sent an announcement before.
 			// If not, send one and save the fact that we have.
 			if (!opts.hasSentAnnouncement) {
-				self.emit('announcement',HELLO_WORLD_ANNOUNCEMENT);
+				self.emit('announcement', HELLO_WORLD_ANNOUNCEMENT);
 				opts.hasSentAnnouncement = true;
-				opts.poll_interval = default_poll_interval;
+				opts.ip_address = "192.168.0.1"; // IP Address of router
+				opts.interval = 5; // interval in seconds
+				opts.transmitted = 0; // total amount of bytes transmitted
+				opts.received = 0; // total amount of bytes received
 				self.save();
 			}
 
 			// Register a device
-			self.emit('register', new Device(app, opts));
+			self.emit('register', new TransmitDevice(app, opts));
+			self.emit('register', new ReceiveDevice(app, opts));
 		}
 	});
 };
