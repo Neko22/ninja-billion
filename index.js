@@ -36,28 +36,26 @@ var HELLO_WORLD_ANNOUNCEMENT = {
  */
 function billionDriver(opts,app) {
 
-  var self = this;
-  this.opts = opts;
+	var self = this;
+	this.opts = opts;
 
-  app.on('client::up',function(){
+	app.on('client::up',function(){
+		if (enabled) {
+			// The client is now connected to the Ninja Platform
 
-  if (enabled)
-    {
-      // The client is now connected to the Ninja Platform
+			// Check if we have sent an announcement before.
+			// If not, send one and save the fact that we have.
+			if (!opts.hasSentAnnouncement) {
+				self.emit('announcement',HELLO_WORLD_ANNOUNCEMENT);
+				opts.hasSentAnnouncement = true;
+				opts.poll_interval = default_poll_interval;
+				self.save();
+			}
 
-      // Check if we have sent an announcement before.
-      // If not, send one and save the fact that we have.
-      if (!opts.hasSentAnnouncement) {
-        self.emit('announcement',HELLO_WORLD_ANNOUNCEMENT);
-        opts.hasSentAnnouncement = true;
-        opts.poll_interval = default_poll_interval;
-        self.save();
-      }
-
-      // Register a device
-      self.emit('register', new Device(app, opts));
-    }
-  });
+			// Register a device
+			self.emit('register', new Device(app, opts));
+		}
+	});
 };
 
 
@@ -72,21 +70,18 @@ function billionDriver(opts,app) {
  * @param  {Function} cb      Used to match up requests.
  */
 billionDriver.prototype.config = function(rpc,cb) {
+	var self = this;
 
-  var self = this;
-
-  // If rpc is null, we should send the user a menu of what he/she
-  // can do.
-  // Otherwise, we will try action the rpc method
-  if (!rpc) {
-    return configHandlers.menu.call(this,this.opts.poll_interval,cb);
-  }
-  else if (typeof configHandlers[rpc.method] === "function") {
-    return configHandlers[rpc.method].call(this,this.opts,rpc.params,cb);
-  }
-  else {
-    return cb(true);
-  }
+	// If rpc is null, we should send the user a menu of what he/she
+	// can do.
+	// Otherwise, we will try action the rpc method
+	if (!rpc) {
+		return configHandlers.menu.call(this,this.opts.poll_interval,cb);
+	} else if (typeof configHandlers[rpc.method] === "function") {
+		return configHandlers[rpc.method].call(this,this.opts,rpc.params,cb);
+	} else {
+		return cb(true);
+	}
 };
 
 // Export it
