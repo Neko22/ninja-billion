@@ -5,6 +5,9 @@ Version: 0.0.1
 Status: Beta
 License: MIT
 
+Reports on internet traffic to and from a Billion BiPAC 7800DXL Router.
+Other Billion router models may also work, but have not been tested.
+
 
 ### Installation
 #### Step 1 - Fetch the driver
@@ -23,12 +26,12 @@ sudo service ninjablock restart
 
 
 ### Notes
-- Reports on internet traffic to and from a Billion 7800 DXL Router (other Billion routers may also work, but have not been tested)
+Currently hard coded the router IP address to 192.168.0.1. For the next version I will expose the IP Address so it can be changed, and get it to attempt to identify the router IP address.
 
 
 ### Change History
 ##### 0.0.1
-- Untested Alpha release, doubt it works.
+- Untested Alpha release.
 
 
 ### License
