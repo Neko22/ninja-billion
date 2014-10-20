@@ -47,7 +47,7 @@ function billionDriver(opts,app) {
 				self.emit('announcement', HELLO_WORLD_ANNOUNCEMENT);
 				opts.hasSentAnnouncement = true;
 				opts.ip_address = "192.168.0.1"; // IP Address of router
-				opts.interval = 5; // interval in seconds
+				opts.interval = 10; // interval in seconds
 				opts.transmitted = 0; // total amount of bytes transmitted
 				opts.received = 0; // total amount of bytes received
 				self.save();
