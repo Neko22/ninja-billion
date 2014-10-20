@@ -78,9 +78,9 @@ billionDriver.prototype.config = function(rpc,cb) {
 	// can do.
 	// Otherwise, we will try action the rpc method
 	if (!rpc) {
-		return configHandlers.menu.call(this,this.opts.poll_interval,cb);
+		return configHandlers.menu.call(this, this.opts, cb);
 	} else if (typeof configHandlers[rpc.method] === "function") {
-		return configHandlers[rpc.method].call(this,this.opts,rpc.params,cb);
+		return configHandlers[rpc.method].call(this, this.opts, rpc.params, cb);
 	} else {
 		return cb(true);
 	}
