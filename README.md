@@ -5,8 +5,6 @@ Version: 0.0.1
 Status: Beta
 License: MIT
 
-WARNING - THIS DRIVER DOES NOT WORK CORRECTLY YET
-
 Reports on internet traffic to and from a Billion BiPAC 7800DXL Router.
 Other Billion router models may also work, but have not been tested.
 
@@ -28,14 +26,13 @@ sudo service ninjablock restart
 
 
 ### Notes
-- Currently hard coded the router IP address to 192.168.0.1. For the next version 
-  I will expose the IP Address so it can be changed, and get it to attempt to 
-  identify the router IP address.
+- Currently hard coded the router IP address to 192.168.0.1, but can change it in the options. 
+  For the next version I plan to get it to try and identify the router IP address automatically.
 - Might look into what other things the router can do.
 
 ### Change History
 ##### 0.0.1
-- Untested Alpha release.
+- First Beta Release.
 
 
 ### License
