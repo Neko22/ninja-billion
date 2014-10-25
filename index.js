@@ -47,20 +47,21 @@ function billionDriver(opts,app) {
 			if (!opts.hasSentAnnouncement) {
 				self.emit('announcement', HELLO_WORLD_ANNOUNCEMENT);
 				opts.hasSentAnnouncement = true;
-				
-				// Default Settings
-				opts.ip_address = "192.168.0.1"; // IP Address of router
-				opts.port = "80";
-				opts.username = "x";
-				opts.password = "x";
-				opts.pages = ["status/adslstatics.html", "statswan.cmd"]; // List of hard-coded pages to check through, in order to find the byte count
-				opts.page = 0; // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
-				opts.interval = 10; // interval in seconds
-				opts.transmitted = 0; // total amount of bytes transmitted
-				opts.received = 0; // total amount of bytes received
 				self.save();
 			}
-
+			
+			// Set Default Settings
+			if (opts.ip_address == undefined) { opts.ip_address="192.168.0.1"; } // IP Address of Router
+			if (opts.port == undefined) { opts.port="80"; } // Port of Router
+			if (opts.username == undefined) { opts.username="x"; }
+			if (opts.password == undefined) { opts.password="x"; }
+			if (opts.pages == undefined) { opts.pages=["status/adslstatics.html","statswan.cmd"]; } // List of hard-coded pages to check through, in order to find the byte count
+			if (opts.page == undefined) { opts.page=0; } // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
+			if (opts.interval == undefined) { opts.interval=10; } // interval in seconds
+			if (opts.transmitted == undefined) { opts.transmitted=0; } // total amount of bytes transmitted
+			if (opts.received == undefined) { opts.received=0; } // total amount of bytes received		
+			this.opts = opts;
+			
 			// Register a device
 			self.emit('register', new Billion(app, opts, "Transmitted"));
 			self.emit('register', new Billion(app, opts, "Received"));
