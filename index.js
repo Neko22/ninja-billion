@@ -1,4 +1,4 @@
-var Device = require('./lib/device');
+var Billion = require('./lib/billion');
 var util = require('util');
 var stream = require('stream');
 var configHandlers = require('./lib/config-handlers');
@@ -62,8 +62,8 @@ function billionDriver(opts,app) {
 			}
 
 			// Register a device
-			self.emit('register', new Device(app, opts, "Transmitted"));
-			self.emit('register', new Device(app, opts, "Received"));
+			self.emit('register', new Billion(app, opts, "Transmitted"));
+			self.emit('register', new Billion(app, opts, "Received"));
 		}
 	});
 };
