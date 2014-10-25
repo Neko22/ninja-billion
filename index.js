@@ -53,9 +53,9 @@ function billionDriver(opts,app) {
 			// Set Default Settings
 			if (opts.ip_address == undefined) { opts.ip_address="192.168.0.1"; } // IP Address of Router
 			if (opts.port == undefined) { opts.port="80"; } // Port of Router
-			if (opts.username == undefined) { opts.username="x"; }
-			if (opts.password == undefined) { opts.password="x"; }
-			if (opts.pages == undefined) { opts.pages=["status/adslstatics.html","statswan.cmd"]; } // List of hard-coded pages to check through, in order to find the byte count
+			if (opts.username == undefined) { opts.username=""; }
+			if (opts.password == undefined) { opts.password=""; }
+			if (opts.pages == undefined) { opts.pages=["/status/adslstatics.html","/statswan.cmd"]; } // List of hard-coded pages to check through, in order to find the byte count
 			if (opts.page == undefined) { opts.page=0; } // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
 			if (opts.interval == undefined) { opts.interval=10; } // interval in seconds
 			if (opts.transmitted == undefined) { opts.transmitted=0; } // total amount of bytes transmitted
