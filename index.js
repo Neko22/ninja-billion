@@ -2,6 +2,7 @@ var Device = require('./lib/device');
 var util = require('util');
 var stream = require('stream');
 var configHandlers = require('./lib/config-handlers');
+var cheerio = require('cheerio');
 
 // Give our driver a stream interface
 util.inherits(billionDriver,stream);
