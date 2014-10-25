@@ -21,8 +21,7 @@ If you do find one works, please let me know so I can add it to the list.
 ```
 cd PATH_TO_NINJA_CLIENT/drivers (e.g. /opt/ninjablocks/block-client/drivers)
 git clone https://github.com/Neko22/ninja-billion
-cd ninja-billion
-npm install
+cd ninja-billion && npm install
 ```
 
 

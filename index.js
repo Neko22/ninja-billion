@@ -14,7 +14,7 @@ var enabled = true;
 var HELLO_WORLD_ANNOUNCEMENT = {
   "contents": [
     { "type": "heading",   "text": "Ninja Billion Router Monitor Loaded" },
-    { "type": "paragraph", "text": "The Ninja Billion Router Monitor has been loaded." }
+    { "type": "paragraph", "text": "The Ninja Billion Router Monitor has been loaded." },
 	{ "type": "paragraph", "text": "Please go to the Driver Settings to enter your Router username and password." }
   ]
 };
