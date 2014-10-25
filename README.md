@@ -1,12 +1,19 @@
 Ninja Billion
 =================
 Author: Matt Hall
-Version: 0.0.1
+Version: 0.0.2
 Status: Beta
 License: MIT
 
-Reports on internet traffic to and from a Billion BiPAC 7800DXL Router.
+Reports on internet traffic to and from a Billion BiPAC Router.
+
+Currently supported Routers:
+
+ - 7800N (Thanks @jcarlsonjones)
+ - 7800DXL
+ 
 Other Billion router models may also work, but have not been tested.
+If you do find one works, please let me know so I can add it to the list.
 
 
 ### Installation
@@ -25,12 +32,13 @@ sudo service ninjablock restart
 ```
 
 
-### Notes
-- Currently hard coded the router IP address to 192.168.0.1, but can change it in the options. 
-  For the next version I plan to get it to try and identify the router IP address automatically.
-- Might look into what other things the router can do.
-
 ### Change History
+##### 0.0.2
+- ADD: Added support for Billion 7800N Router.
+- ADD: Added support to enter a custom port number.
+- ADD: Altered driver to fetch byte count by scraping page rather than accessing shell script, in order to support a greater number of devices and support future features. 
+- FIX: Fixed bug where byte count was not correct.
+
 ##### 0.0.1
 - First Beta Release.
 

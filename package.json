@@ -1,6 +1,6 @@
 {
   "name": "ninja-billion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ninja Billion Router Monitor",
   "main": "index.js",
   "scripts": {

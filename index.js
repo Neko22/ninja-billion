@@ -14,7 +14,8 @@ var enabled = true;
 var HELLO_WORLD_ANNOUNCEMENT = {
   "contents": [
     { "type": "heading",   "text": "Ninja Billion Router Monitor Loaded" },
-    { "type": "paragraph", "text": "The Ninja Billion Router Monitor has been loaded. You should not see this message again." }
+    { "type": "paragraph", "text": "The Ninja Billion Router Monitor has been loaded." }
+	{ "type": "paragraph", "text": "Please go to the Driver Settings to enter your Router username and password." }
   ]
 };
 
@@ -46,7 +47,15 @@ function billionDriver(opts,app) {
 			if (!opts.hasSentAnnouncement) {
 				self.emit('announcement', HELLO_WORLD_ANNOUNCEMENT);
 				opts.hasSentAnnouncement = true;
+				
+				// Default Settings
 				opts.ip_address = "192.168.0.1"; // IP Address of router
+				opts.port = "80";
+				
+				// List of hard-coded pages to check through, in order to find the byte count
+				this.pages = { "status/adslstatics.html", "statswan.cmd" }
+				opts.page = 0; // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
+				
 				opts.interval = 10; // interval in seconds
 				opts.transmitted = 0; // total amount of bytes transmitted
 				opts.received = 0; // total amount of bytes received
@@ -54,8 +63,8 @@ function billionDriver(opts,app) {
 			}
 
 			// Register a device
-			self.emit('register', new TransmitDevice(app, opts));
-			self.emit('register', new ReceiveDevice(app, opts));
+			self.emit('register', new Device(app, opts, "Transmitted"));
+			self.emit('register', new Device(app, opts, "Received"));
 		}
 	});
 };
