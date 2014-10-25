@@ -63,7 +63,7 @@ function billionDriver(opts,app) {
 			this.opts = opts;
 			
 			// Register a device
-			self.emit('register', new Billion(app, opts, "Transmitted"));
+			//self.emit('register', new Billion(app, opts, "Transmitted"));
 			self.emit('register', new Billion(app, opts, "Received"));
 		}
 	});
