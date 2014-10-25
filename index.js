@@ -51,8 +51,8 @@ function billionDriver(opts,app) {
 				// Default Settings
 				opts.ip_address = "192.168.0.1"; // IP Address of router
 				opts.port = "80";
-				opts.username = "";
-				opts.password = "";
+				opts.username = "x";
+				opts.password = "x";
 				opts.pages = ["status/adslstatics.html", "statswan.cmd"]; // List of hard-coded pages to check through, in order to find the byte count
 				opts.page = 0; // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
 				opts.interval = 10; // interval in seconds
