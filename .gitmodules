@@ -1,3 +1,0 @@
-[submodule "lib/cheerio"]
-	path = lib/cheerio
-	url = https://github.com/cheeriojs/cheerio
