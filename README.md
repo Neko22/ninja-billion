@@ -8,13 +8,15 @@ License: MIT
 Reports on internet traffic to and from a Billion BiPAC Router.
 
 Currently supported Routers:
-
- - 7800N (Thanks @jcarlsonjones)
+ - 7800N
  - 7800DXL
  
 Other Billion router models may also work, but have not been tested.
 If you do find one works, please let me know so I can add it to the list.
 
+Thanks:
+ - @jcarlsonjones for providing information about the 7800N.
+ - @mlava for your ninja-forecast driver code (helpful in fixing my problems).
 
 ### Installation
 #### Step 1 - Fetch the driver
@@ -22,6 +24,10 @@ If you do find one works, please let me know so I can add it to the list.
 cd PATH_TO_NINJA_CLIENT/drivers (e.g. /opt/ninjablocks/block-client/drivers)
 git clone https://github.com/Neko22/ninja-billion
 cd ninja-billion && npm install
+```
+Note - Depending on the npm version on your device you might need to update npm with the following command:
+```
+sudo npm install -g npm
 ```
 
 
