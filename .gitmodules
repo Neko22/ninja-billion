@@ -1,6 +1,0 @@
-[submodule "modules/cheerio"]
-	path = modules/cheerio
-	url = git://github.com/cheeriojs/cheerio.git
-[submodule "modules/htmlparser2"]
-	path = modules/htmlparser2
-	url = git://github.com/fb55/htmlparser2.git
