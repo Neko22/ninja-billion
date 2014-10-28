@@ -22,8 +22,10 @@ Thanks:
 #### Step 1 - Fetch the driver
 ```
 cd PATH_TO_NINJA_CLIENT/drivers (e.g. /opt/ninjablocks/block-client/drivers)
-git clone --recursive https://github.com/Neko22/ninja-billion
-cd ninja-billion && npm install
+git clone https://github.com/Neko22/ninja-billion
+cd ninja-billion 
+git clone https://github.com/cheeriojs/cheerio (sorry I have not been able to work out how to attach this as a submodule that ninja block likes)
+npm install
 ```
 Note - Depending on the npm version on your device you might need to update npm with the following command:
 ```
