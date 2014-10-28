@@ -1,3 +1,0 @@
-[submodule "externals/cheerio"]
-	path = externals/cheerio
-	url = git://github.com/cheeriojs/cheerio
