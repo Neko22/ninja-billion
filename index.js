@@ -58,8 +58,11 @@ function billionDriver(opts,app) {
 			if (!opts.pages) { opts.pages=["/status/adslstatics.html","/statswan.cmd"]; } // List of hard-coded pages to check through, in order to find the byte count
 			if (!opts.page) { opts.page=0; } // pointer to the array of pages. When we find one that works, we stick with it unless it is not available.
 			if (!opts.interval) { opts.interval=10; } // interval in seconds
-			if (!opts.transmitted) { opts.transmitted=0; } // total amount of bytes transmitted
-			if (!opts.received) { opts.received=0; } // total amount of bytes received		
+
+			// Reset counter so we dont get an inflated value the first time
+			opts.received=0;
+			opts.transmitted=0; 
+			self.save();
 			
 			// Register a device
 			self.emit('register', new Billion(app, opts, "Transmitted"));
