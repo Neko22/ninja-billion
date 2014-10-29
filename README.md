@@ -23,7 +23,9 @@ Thanks:
 ```
 cd PATH_TO_NINJA_CLIENT/drivers (e.g. /opt/ninjablocks/block-client/drivers)
 git clone https://github.com/Neko22/ninja-billion
-cd ninja-billion && npm install
+cd ninja-billion 
+npm install cheerio
+npm install
 ```
 Note - Depending on the npm version on your device you might need to update npm with the following command:
 ```
